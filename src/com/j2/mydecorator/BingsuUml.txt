@@ -1,0 +1,43 @@
+abstract class CondimentDecorator{
+    +Abstract getDescription():String
+}
+class Bingsu{
+    +getDescription():String
+    +cost():double
+    +String Description
+}
+class PureIce{
+    +PureIce()
+}
+class MilkIce{
+    +MilkIce()
+}
+class MangoBingsu{
+    +MangoBingsu()
+}
+class AdzukBeanBingsu{
+    +AdzukBeanBingsu()
+}
+class FruitTopping{
+    +FruitTopping()
+}
+class Icecream{
+    +Icecream()
+}
+class CondensedMilk{
+    +CondensedMilk()
+}
+class ChocolateSyrup{
+    +ChocolateSyrup()
+}
+Bingsu <|-- PureIce
+Bingsu <|-- MilkIce
+Bingsu <|-- MangoBingsu
+Bingsu <|-- AdzukBeanBingsu
+Bingsu <|-- CondimentDecorator
+Bingsu <-- CondimentDecorator
+
+CondimentDecorator <|-- FruitTopping
+CondimentDecorator <|-- Icecream
+CondimentDecorator <|-- CondensedMilk
+CondimentDecorator <|-- ChocolateSyrup
