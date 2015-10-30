@@ -1,0 +1,50 @@
+package com.j2.singleton.chocolateThreadsafe;
+
+public class ChocolateBoiler {
+  private boolean empty;
+  private boolean boiled;
+  
+  private static ChocolateBoiler uniqueInstance;
+  
+  private static int numCalled;
+  
+  private ChocolateBoiler() {}
+   
+  public static synchronized ChocolateBoiler getInstance() {
+    if(uniqueInstance==null) {
+      uniqueInstance=new ChocolateBoiler();
+      System.out.println("Creating unique instance of Chocolate Boiler");
+    }
+    else {
+      System.out.println("already Used Instance");
+    }
+    System.out.println("numCalled: " + numCalled++);
+    return uniqueInstance;
+  }
+  
+  public void fill() {
+    if(isEmpty()){
+      empty=false;
+      boiled=false;
+    }
+  }
+  public void drain() {
+    if(isEmpty() && isBoiled()) {
+      empty = true;
+    }
+  }
+  public void boil() {
+    if(isEmpty() && isBoiled()) {
+      boiled =true;
+    }
+  }
+  
+  public boolean isEmpty() {
+    return empty;
+  }
+  public boolean  isBoiled() {
+    return boiled;
+  }
+         
+}
+    
